@@ -1,7 +1,10 @@
 package main
 
 import (
+	"context"
 	"fmt"
+
+	"github.com/Kylescottw/pulse-api/internal/db/db"
 )
 
 // Run - is going to be responsible for
@@ -10,14 +13,14 @@ import (
 func Run() error {
 	fmt.Println("starting up our application")
 	
-	// db, err := db.NewDatabase()
-	// if err != nil {
-	// 	fmt.Println("Failed to connect to the database")
-	// 	return err
-	// }
-	// if err := db.Ping(context.Background()); err != nil {
-	// 	return err
-	// }
+	db, err := db.NewDatabase()
+	if err != nil {
+		fmt.Println("Failed to connect to the database")
+		return err
+	}
+	if err := db.Ping(context.Background()); err != nil {
+		return err
+	}
 
 	return nil
 }
