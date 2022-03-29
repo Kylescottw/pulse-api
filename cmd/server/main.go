@@ -9,7 +9,7 @@ import (
 
 // Run - is going to be responsible for
 // the instantiation and start up of the
-// go application
+// go application.
 func Run() error {
 	fmt.Println("starting up our application")
 	
