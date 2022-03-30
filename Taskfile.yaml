@@ -12,4 +12,4 @@ tasks:
       - golangci-lint run
   run:
     cmds:
-      - docker-compose up --build
+      - docker-compose up --build   --force-recreate

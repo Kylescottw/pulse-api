@@ -12,6 +12,9 @@ import (
 // go application.
 func Run() error {
 	fmt.Println("starting up our application")
+
+
+	fmt.Println("hello world")
 	
 	db, err := db.NewDatabase()
 	if err != nil {
@@ -21,6 +24,8 @@ func Run() error {
 	if err := db.Ping(context.Background()); err != nil {
 		return err
 	}
+
+	fmt.Println("successfully connected and pinged the database")
 
 	return nil
 }
