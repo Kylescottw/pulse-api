@@ -1,12 +1,11 @@
-### build docker file
+### Development
 
-docker build -t pulse-api .
+The project uses task to acomplish running build commands.
+simple run `task run`, this will build the go project and spin up a docker instance using the docker-compose.yaml file.
 
-### run docker file
+### Tools Needed
 
-docker run pulse-api
-
-### Taskfile
-
-simple run `task run` in terminal in the project root, to execute docker compose and other commands.
-no need to remember build commands
+- Go Lang
+- git
+- docker & docker-compose https://docs.docker.com/get-docker/
+- task https://taskfile.dev/#/installation
