@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/Kylescottw/pulse-api/internal/db/db"
+	"github.com/Kylescottw/pulse-api/internal/db"
 )
 
 // Run - is going to be responsible for
