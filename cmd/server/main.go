@@ -13,8 +13,6 @@ import (
 func Run() error {
 	fmt.Println("starting up our application")
 
-
-	fmt.Println("hello world")
 	
 	db, err := db.NewDatabase()
 	if err != nil {
