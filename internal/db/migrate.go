@@ -22,7 +22,7 @@ func (d *Database) MigrateDB() error {
 		return err
 	}
 
-	if err := m.Up(); err != nil {
+	if err := m.Up(); err != nil && err != migrate.ErrNoChange {
 		return fmt.Errorf("could not run up migrations: %w", err)
 	}
 
