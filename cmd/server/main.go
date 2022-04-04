@@ -1,8 +1,10 @@
 package main
 
 import (
+	"context"
 	"fmt"
 
+	"github.com/Kylescottw/pulse-api/internal/comment"
 	"github.com/Kylescottw/pulse-api/internal/db"
 )
 
@@ -23,6 +25,24 @@ func Run() error {
 		return err
 	} 
 	fmt.Println("successfully connected and pinged the database")
+
+	cmtService := comment.NewService(db)
+	
+	cmtService.PostComment(
+		context.Background(),
+		comment.Comment{
+			ID: "49443e52-aebb-439e-adf9-0d7159872810",
+			Slug: "manual-test",
+			Author: "Elliot",
+			Body: "Hello World",
+		},
+	)
+
+
+	fmt.Println(cmtService.GetComment(
+		context.Background(), 
+		"49443e52-aebb-439e-adf9-0d7159872810",
+	))
 
 	return nil
 }

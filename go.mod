@@ -8,5 +8,6 @@ require (
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/jmoiron/sqlx v1.3.4 // indirect
 	github.com/lib/pq v1.10.4 // indirect
+	github.com/satori/go.uuid v1.2.0 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 )
