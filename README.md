@@ -1,6 +1,6 @@
 ### About
 
-A email and sms notification system
+An email and sms notification system
 
 ### Local Development
 
