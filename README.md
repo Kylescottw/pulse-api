@@ -1,6 +1,6 @@
 ### About
 
-A REST API for an email and sms notification system
+A email and sms notification system
 
 ### Local Development
 
