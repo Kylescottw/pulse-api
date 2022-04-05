@@ -1,8 +1,13 @@
 package http
 
 import (
+	"context"
 	"fmt"
+	"log"
 	"net/http"
+	"os"
+	"os/signal"
+	"time"
 
 	"github.com/gorilla/mux"
 )
@@ -18,7 +23,7 @@ type Handler struct {
 
 func NewHandler(service CommentService) *Handler {
 	h := &Handler{
-		Service: service,
+		Service: service, 
 	}
 
 	h.Router = mux.NewRouter()
@@ -39,9 +44,22 @@ func (h *Handler) mapRoutes() {
 }
 
 func (h *Handler) Serve() error {
-	if err := h.Server.ListenAndServe(); err != nil {
-		return err
-	}
+	go func() {
+		// make listen and serve a non-blocking operation
+		if err := h.Server.ListenAndServe(); err != nil {
+			log.Println(err.Error())
+		}
+	}()
+
+	c := make(chan os.Signal, 1) // create a blocking channel
+	signal.Notify(c, os.Interrupt) // wait for os.Interrupt signal to unblock the channel
+	<-c // code will resume here once channel is unblocked
+
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel() // defer calling calcel function for 15 seconds
+	h.Server.Shutdown(ctx) // shutdown gracefully, first close all open listeners, then all idle connections, waiting indefinelty for connections to return to idle, then shuts down the server 
+
+	log.Println("shut down gracefully")
 
 	return nil
 }
