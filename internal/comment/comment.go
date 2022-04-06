@@ -73,8 +73,10 @@ func (s *Service) UpdateComment(
 	ID string,
 	updatedCmt Comment,
 	) (Comment, error) {
+
 	cmt, err := s.Store.UpdateComment(ctx, ID, updatedCmt)
 	if err != nil {
+
 		fmt.Println("error updating comment")
 		return Comment{}, err
 	}

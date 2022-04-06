@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"log"
 
 	"github.com/Kylescottw/pulse-api/internal/comment"
 	uuid "github.com/satori/go.uuid"
@@ -94,12 +95,13 @@ func (d *Database) UpdateComment(
 		Author: sql.NullString{String: cmt.Author, Valid: true},
 		Body: sql.NullString{String: cmt.Body, Valid: true},
 	}
+	log.Print(cmtRow)
 	rows, err := d.Client.NamedQueryContext(
 		ctx,
 		`UPDATE comments SET
 		slug = :slug,
 		author = :author,
-		body = :body,
+		body = :body
 		WHERE id = :id
 		`,
 		cmtRow,

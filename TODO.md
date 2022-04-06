@@ -1,0 +1,1 @@
+- get comment endpoint: if comment not found, return message to client.
