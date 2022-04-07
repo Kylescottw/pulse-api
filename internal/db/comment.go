@@ -30,6 +30,7 @@ func (d *Database) GetComment(
 	uuid string,
 	) (comment.Comment, error) {
 
+		
 		var cmtRow CommentRow
 		row := d.Client.QueryRowContext(
 			ctx,
@@ -88,6 +89,7 @@ func (d *Database) UpdateComment(
 	id string,
 	cmt comment.Comment,
 ) (comment.Comment, error) {
+
 	cmtRow := CommentRow{
 		ID: id,
 		Slug: sql.NullString{String: cmt.Slug, Valid: true},
