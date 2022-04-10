@@ -25,3 +25,4 @@ tasks:
       DB_PORT: 5432
       DB_DB: postgres
       SSL_MODE: disable
+      JWT_SECRET: 203002130nasdffh!@#hasdfllkk

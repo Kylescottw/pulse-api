@@ -1,8 +1,5 @@
 1.  get comment endpoint: if comment not found, return message to client.
 
-2.  file: transport/http/auth.go
+2.  Env variables:: remove static definitions, move into .env file and inject into docker file and task file at build time.
 
-- 2.1 Move jwt secret into env variable
-
-3. Create auth endpoints for user creation
-4. write up project file structure overview
+3.  Create auth endpoints for user creation
