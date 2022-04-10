@@ -2,4 +2,6 @@
 
 2.  Env variables:: remove static definitions, move into .env file and inject into docker file and task file at build time.
 
-3.  Create auth endpoints for user creation
+3.  env variables:: check if all are defined at build time, throw error if one is missing
+
+4.  Create auth endpoints for user creation
