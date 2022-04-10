@@ -2,9 +2,15 @@
 
 An email and sms notification system
 
-### Local Development
-Taskfile is used for running build commands,
-simply run `task run` to execute a docker build + serve command
+### Start Local Instance
+
+Start up a local instance of the application, using docker build + serve
+
+From terminal run: `task run`
+
+### Run Testing Suite
+
+From terminal run: `task integration-test`
 
 ### Operating System Tools Needed
 
