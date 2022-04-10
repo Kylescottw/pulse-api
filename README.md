@@ -20,12 +20,24 @@ From terminal run: `task integration-test`
 
 
 ### Overview
+Http = internal/transport/http\
+Service = internal/comment/comment\
+Repository = internal/db
+
 ```mermaid
 flowchart LR
   /api/v1/endpoint-name <--> Http <--> Service <--> Repository <--> Postgres
   Service <--> Client
 
 ```
-Http = internal/transport/http\
-Service = internal/comment/comment\
-Repository = internal/db
+
+```mermaid
+sequenceDiagram
+    cmd/server/main->>+db: NewDatabase()
+    cmd/server/main->>+db: MigrateDb()
+    db->>+cmd/server/main: *db
+    cmd/server/main->>+internal/comment: NewService(*db)
+    internal/comment->>-cmd/server/main: *service
+    cmd/server/main->>+internal/transport/http: NewHandler(*service)
+    internal/transport/http->>-cmd/server/main: serve http endpoints
+```
