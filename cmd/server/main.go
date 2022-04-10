@@ -12,9 +12,7 @@ import (
 // the instantiation and start up of the
 // go application.
 func Run() error {
-	
-	// TODO: Check that all env variables exist
-	
+
 	db, err := db.NewDatabase()
 	if err != nil {
 		fmt.Println("Failed to connect to the database")

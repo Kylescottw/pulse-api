@@ -13,6 +13,7 @@ require (
 	github.com/lib/pq v1.10.4
 	github.com/satori/go.uuid v1.2.0
 	github.com/sirupsen/logrus v1.8.1 // indirect
+	github.com/spf13/viper v1.10.1 // indirect
 	github.com/stretchr/testify v1.7.1 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 )
