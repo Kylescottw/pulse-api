@@ -17,3 +17,15 @@ From terminal run: `task integration-test`
 - Go 1.16
 - [Docker & Docker Compose](https://docs.docker.com/get-docker/)
 - [Taskfile](https://taskfile.dev/#/installation)
+
+
+### Overview
+```mermaid
+flowchart LR
+  /api/v1/endpoint-name <--> Http <--> Service <--> Repository <--> Postgres
+  Service <--> Client
+
+```
+Http = internal/transport/http\
+Service = internal/comment/comment\
+Repository = internal/db
