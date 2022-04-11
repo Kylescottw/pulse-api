@@ -1,5 +1,5 @@
 version: "3"
-
+dotenv: [".env"]
 tasks:
   build:
     cmds:
@@ -15,6 +15,7 @@ tasks:
       - docker-compose up --build   --force-recreate
   integration-test:
     cmds:
+      # - echo "$DB_DB"
       - docker-compose up -d db
       - go test -tags=integration -v ./...
     env:
