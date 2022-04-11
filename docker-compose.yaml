@@ -7,9 +7,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=${DB_DB}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     networks:
       - fullstack
     volumes:
@@ -19,14 +19,14 @@ services:
     build: .
     container_name: "pulse-api"
     environment:
-      DB_USERNAME: "postgres"
-      DB_PASSWORD: "postgres"
-      DB_DB: "postgres"
-      DB_HOST: "db"
-      DB_TABLE: "postgres"
-      DB_PORT: "5432"
-      SSL_MODE: "disable"
-      JWT_SECRET: "203002130nasdffh!@#hasdfllkk"
+      DB_USERNAME: "${DB_USERNAME}"
+      DB_PASSWORD: "${DB_PASSWORD}"
+      DB_DB: "${DB_DB}"
+      DB_HOST: "${DB_HOST}"
+      DB_TABLE: "${DB_TABLE}"
+      DB_PORT: "${DB_PORT}"
+      SSL_MODE: "${SSL_MODE}"
+      JWT_SECRET: "${JWT_SECRET}"
     ports:
       - "8080:8080"
     depends_on:
