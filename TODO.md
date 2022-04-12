@@ -4,4 +4,4 @@
 
 3.  Create auth endpoints for user creation
 
-4.  taskfile: remove staticly defined env variables, inject from .env file. right now the taskfile will not pass .env into docker-compose up command. experiment with writing a test that access .env varaible and prints to console.
+4.  taskfile: remove staticly defined env variables, inject from .env file. right now the taskfile will not pass .env into docker-compose up command. experiment with writing a test that access .env varaible and prints to console. - IN PROGRESS

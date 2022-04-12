@@ -14,16 +14,7 @@ tasks:
     cmds:
       - docker-compose up --build   --force-recreate
   integration-test:
+    # Note: .Env config vars are passed through by bash definition in the commands below. Simply importing dotenv at the top of this file is not enough.
     cmds:
-      # - echo "$DB_DB"
-      - docker-compose up -d db
-      - go test -tags=integration -v ./...
-    env:
-      DB_USERNAME: postgres
-      DB_PASSWORD: postgres
-      DB_TABLE: postgres
-      DB_HOST: localhost
-      DB_PORT: 5432
-      DB_DB: postgres
-      SSL_MODE: disable
-      JWT_SECRET: 203002130nasdffh!@#hasdfllkk
+      - export DB_USERNAME=$DB_USERNAME; export DB_PASSWORD=$DB_PASSWORD; export DB_TABLE=$DB_TABLE; export DB_HOST=localhost;  export DB_PORT=$DB_PORT;  export DB_DB=$DB_DB;  export SSL_MODE=$SSL_MODE; export JWT_SECRET=$JWT_SECRET; docker-compose up -d db
+      - export DB_USERNAME=$DB_USERNAME; export DB_PASSWORD=$DB_PASSWORD; export DB_TABLE=$DB_TABLE; export DB_HOST=localhost;  export DB_PORT=$DB_PORT;  export DB_DB=$DB_DB;  export SSL_MODE=$SSL_MODE; export JWT_SECRET=$JWT_SECRET; go test -tags=integration -v ./...
