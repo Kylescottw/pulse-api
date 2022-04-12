@@ -8,10 +8,18 @@ import (
 	transportHttp "github.com/Kylescottw/pulse-api/internal/transport/http"
 )
 
-// Run - is going to be responsible for
-// the instantiation and start up of the
-// go application.
+func PreFlight() (error) {
+	// TODO: PreFlight check: Env variables
+	// parse .env-example, grabbing keys, stash into array. parse array and check if env variables exists. if one or more are not defined return an error to the console and deny booting up the applicaion.
+	return nil
+}
+
+
 func Run() error {
+
+	if err := PreFlight(); err != nil {
+		return err
+	}
 
 	db, err := db.NewDatabase()
 	if err != nil {
@@ -36,7 +44,7 @@ func Run() error {
 
 func main() {
 	if err := Run(); err != nil {
-		// TODO:: emit err to rollbar, or data dog... error monitoring.
+		// TODO: emit err to rollbar, or data dog... error monitoring.
 		fmt.Println(err)
 	}
 }
