@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/Kylescottw/pulse-api/internal/comment"
 	"github.com/Kylescottw/pulse-api/internal/db"
+	"github.com/Kylescottw/pulse-api/internal/service/comment"
 	transportHttp "github.com/Kylescottw/pulse-api/internal/transport/http"
 	"github.com/Kylescottw/pulse-api/internal/util/system"
 )

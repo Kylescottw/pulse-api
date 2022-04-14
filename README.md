@@ -40,8 +40,8 @@ sequenceDiagram
     cmd/server/main->>+db: NewDatabase()
     cmd/server/main->>+db: MigrateDb()
     db->>+cmd/server/main: *db
-    cmd/server/main->>+internal/comment: NewService(*db)
-    internal/comment->>-cmd/server/main: *service
+    cmd/server/main->>+internal/service: NewService(*db)
+    internal/service->>-cmd/server/main: *service
     cmd/server/main->>+internal/transport/http: NewHandler(*service)
     internal/transport/http->>-cmd/server/main: serve http endpoints
 ```

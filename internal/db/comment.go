@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/Kylescottw/pulse-api/internal/comment"
+	"github.com/Kylescottw/pulse-api/internal/service/comment"
 	uuid "github.com/satori/go.uuid"
 )
 

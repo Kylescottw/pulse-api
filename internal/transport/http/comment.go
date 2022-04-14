@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/Kylescottw/pulse-api/internal/comment"
+	"github.com/Kylescottw/pulse-api/internal/service/comment"
 	"github.com/go-playground/validator/v10"
 	"github.com/gorilla/mux"
 )
